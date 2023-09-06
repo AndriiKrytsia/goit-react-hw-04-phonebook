@@ -11,15 +11,9 @@ export const App = () => {
   );
   const [filter, setFilter] = useState('');
 
-  //  setContacts(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []);
-  useEffect(
-    (_, prevContacts) => {
-      if (prevContacts !== contacts) {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-      }
-    },
-    [contacts]
-  );
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+  }, [contacts]);
 
   const handelAddContact = (name, number) => {
     if (
